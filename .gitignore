@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+target
+
+screenshots/
+videos
+report
+*.log
+*.tmp
+exports
+allure-report

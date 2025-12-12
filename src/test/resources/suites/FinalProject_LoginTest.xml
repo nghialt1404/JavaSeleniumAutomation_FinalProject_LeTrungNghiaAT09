@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FinalProJect_LoginTest" verbose="1">
+    <test name="Login Test" parallel="methods" thread-count="5">
+        <classes>
+            <class name="FinalProject_AT09.testcases.LoginTest"/>
+        </classes>
+    </test>
+</suite>

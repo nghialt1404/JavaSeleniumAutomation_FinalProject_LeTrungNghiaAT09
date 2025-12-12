@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FinalProJect_FullFlow" verbose="1" parallel="classes" thread-count="4">
+
+    <test name="Full Flow">
+
+        <classes>
+
+            <class name="FinalProject_AT09.testcases.LoginTest">
+                <methods>
+                    <include name="testLoginSuccess"/>
+                </methods>
+            </class>
+
+            <class name="FinalProject_AT09.testcases.ClientsTest">
+                <methods>
+                    <include name="testAddNewClient"/>
+                </methods>
+            </class>
+
+            <class name="FinalProject_AT09.testcases.ProjectTest">
+                <methods>
+                    <include name="testAddNewProjectForClient"/>
+                </methods>
+            </class>
+
+            <class name="FinalProject_AT09.testcases.TaskTest">
+                <methods>
+                    <include name="testAddNewTaskForProject"/>
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+
+</suite>

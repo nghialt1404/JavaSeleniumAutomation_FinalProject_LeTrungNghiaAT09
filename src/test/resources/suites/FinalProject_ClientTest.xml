@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FinalProJect_ClientTest" verbose="1">
+    <test name="Client Test" parallel="methods" thread-count="4">
+        <classes>
+            <class name="FinalProject_AT09.testcases.ClientsTest"/>
+        </classes>
+    </test>
+</suite>
