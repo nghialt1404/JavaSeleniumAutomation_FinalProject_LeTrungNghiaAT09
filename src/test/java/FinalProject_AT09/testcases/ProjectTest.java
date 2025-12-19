@@ -20,6 +20,6 @@ public class ProjectTest extends BaseTest {
         getLoginPage().loginSusscess(excel.getCellData("email", 1), excel.getCellData("password", 1));
         getClientsPage().AddNewClient(DataConfig.COMPANY_NAME);
         getProjectsPage().addNewProject(DataConfig.PROJECT_NAME,DataConfig.COMPANY_NAME);
-        getProjectsPage().verifyAddNewProjectForClientSuccess();
+        getProjectsPage().verifyAddNewProjectForClientSuccess(DataConfig.PROJECT_NAME);
     }
 }

@@ -17,6 +17,6 @@ public class TaskTest extends BaseTest {
             getClientsPage().AddNewClient(DataConfig.COMPANY_NAME);
             getProjectsPage().addNewProject(DataConfig.PROJECT_NAME,DataConfig.COMPANY_NAME);
             getTasksPage().addNewTask(DataConfig.PROJECT_NAME);
-            getTasksPage().verifyAddNewTaskForProjectSuccess();
+            getTasksPage().verifyAddNewTaskForProjectSuccess(DataConfig.PROJECT_NAME);
         }
     }

@@ -9,7 +9,8 @@ import java.time.format.DateTimeFormatter;
 
 public class TasksPage extends BasePage {
 
-    //Khai báo các element của trang Projects
+    //Khai báo các element của trang Tasks
+    private By inputSearchTask = By.xpath("//input[@type='search']");
     private By buttonAddTask = By.xpath("//a[@class='btn btn-default'][normalize-space()='Add task']");
     private By inputTitle = By.xpath("//input[@id='title']");
     private By inputDescription = By.xpath("//textarea[@id='description']");
@@ -116,9 +117,14 @@ public class TasksPage extends BasePage {
         WebUI.clickElement(buttonSave_AddTask);
     }
 
-    public void verifyAddNewTaskForProjectSuccess() {
+    public void verifyAddNewTaskForProjectSuccess(String projectName) {
         WebUI.waitForElementVisible(alertAddTaskSuccess);
-        Assert.assertTrue(WebUI.checkElementExist(alertAddTaskSuccess), "Add new Task not success ");
+        Assert.assertTrue(WebUI.checkElementExist(alertAddTaskSuccess), "Add Task For Project not success ");
+
+        WebUI.setText(inputSearchTask, projectName);
+        WebUI.sleep(2);
+        Assert.assertTrue(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[1]")),"Add Task For Project not success");
+
 
     }
 

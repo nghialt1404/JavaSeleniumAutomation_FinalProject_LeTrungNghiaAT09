@@ -90,7 +90,7 @@ public class ClientsPage extends BasePage {
         WebUI.setText(inputAddress, "Cong Hoa");
         WebUI.setText(inputCity, "Ho Chi Minh");
         WebUI.setText(inputState, "Ho Chi Minh");
-        WebUI.setText(inputZipcode, "70000");
+        WebUI.setText(inputZipcode, "700000");
         WebUI.setText(inputCountry, "Viet Nam");
         WebUI.setText(inputPhone, "0923456789");
         WebUI.setText(inputWebsite, "https//anhtester.com");
@@ -155,32 +155,32 @@ public class ClientsPage extends BasePage {
 
     public void verifyAddNewClientSuccess() {
         WebUI.waitForElementVisible(alertAddClientSuccess);
-        Assert.assertTrue(WebUI.checkElementExist(alertAddClientSuccess, 5, 1000), "Add New Client không thành công!");
+        Assert.assertTrue(WebUI.checkElementExist(alertAddClientSuccess, 5, 1000), "Add New Client not success");
     }
 
     public void verifyEditClientSuccess() {
         WebUI.waitForElementVisible(alertEditClientSuccess);
-        Assert.assertTrue(WebUI.checkElementExist(alertEditClientSuccess), "Edit Client không thành công!");
+        Assert.assertTrue(WebUI.checkElementExist(alertEditClientSuccess), "Edit Client not success");
     }
 
     public void verifyDeleteClientSuccess(String companyName) {
         WebUI.waitForElementVisible(alertDeleteClientSuccess);
-        Assert.assertEquals(WebUI.getElementText(alertDeleteClientSuccess), "The record has been deleted.", "Message not match!");
+        Assert.assertEquals(WebUI.getElementText(alertDeleteClientSuccess), "The record has been deleted", "Message not match!");
 
         // Check lại client vừa xoá còn tồn tại hay không
-        Assert.assertFalse(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[2]")), "Client còn tồn tại sau khi xóa!");
+        Assert.assertFalse(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[2]")), "The record has not been deleted");
     }
 
     public void verifyAddContactForClientSuccess(String companyName) {
         WebUI.waitForElementVisible(alertaddContactSuccess);
-        Assert.assertTrue(WebUI.checkElementExist(alertaddContactSuccess, 5, 1000), "Add New Client không thành công!");
+        Assert.assertTrue(WebUI.checkElementExist(alertaddContactSuccess, 5, 1000), "Add Contact For Client not success");
 
         // Vào Tab Contact check xem có không
         clickMenuClients();
         clickTabContacts();
         WebUI.setText(inputSearchClient, companyName);
         WebUI.sleep(2);
-        Assert.assertEquals(WebUI.getElementText(By.xpath("//tbody/tr[1]/td[3]")), companyName, "Add Contact For Client không thành công!");
+        Assert.assertEquals(WebUI.getElementText(By.xpath("//tbody/tr[1]/td[3]")), companyName, "Add Contact For Client not success");
 
 
     }

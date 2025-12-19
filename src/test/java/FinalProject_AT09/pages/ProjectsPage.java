@@ -11,12 +11,13 @@ import java.time.format.DateTimeFormatter;
 public class ProjectsPage extends BasePage {
 
     //Khai báo các element của trang Projects
+    private By inputSearchProject = By.xpath("//input[@type='search']");
     private By buttonAddProject = By.xpath(" //a[@title='Add project']");
     private By inputTitle = By.xpath("//input[@id='title']");
 
-    // dropdown Client
+    // Dropdown Client
     private By dropdownClient = By.xpath("//div[@class=' col-md-9']//span[normalize-space()='Customer Example']");
-    private By inputSearchClient = By.xpath("//input[@id='s2id_autogen7_search']");
+    private By inputSearchCLient = By.xpath("//input[@id='s2id_autogen7_search']");
 
     private By inputDescription = By.xpath("//textarea[@id='description']");
     private By inputStartDate = By.xpath("//input[@id='start_date']");
@@ -26,7 +27,7 @@ public class ProjectsPage extends BasePage {
     private By deadlineDate = By.xpath("//td[@class='old today day']");
     private By inputPrice = By.xpath("//input[@id='price']");
 
-    //dropdown Labels
+    //Dropdown Labels
     private By dropdownLabels = By.xpath("//div[@class=' col-md-9']//li[normalize-space()='Labels']");
     private By optionLabels_CICD = By.xpath("//ul[@class='select2-results']/descendant::div[normalize-space()='CI/CD']");
     private By buttonSave_AddProject = By.xpath("//button[@type='submit']");
@@ -59,7 +60,7 @@ public class ProjectsPage extends BasePage {
         WebUI.clickElement(buttonAddProject);
         WebUI.setText(inputTitle, projectName);
         WebUI.clickElement(dropdownClient);
-        WebUI.setText(inputSearchClient, customerName);
+        WebUI.setText(inputSearchCLient, customerName);
         WebUI.clickElement(By.xpath("//ul[@class='select2-results']/descendant::div[normalize-space()='" + customerName + "']"));
         WebUI.setText(inputDescription, "This is description for Project Automation Testing");
 
@@ -71,9 +72,14 @@ public class ProjectsPage extends BasePage {
         WebUI.clickElement(buttonSave_AddProject);
     }
 
-    public void verifyAddNewProjectForClientSuccess() {
+    public void verifyAddNewProjectForClientSuccess(String projectName) {
         WebUI.waitForElementVisible(alertAddProjectSuccess);
-        Assert.assertTrue(WebUI.checkElementExist(alertAddProjectSuccess), "Add new project not success ");
+        Assert.assertTrue(WebUI.checkElementExist(alertAddProjectSuccess), "Add Project For Client not success");
+
+        WebUI.setText(inputSearchProject, projectName);
+        WebUI.sleep(2);
+        Assert.assertTrue(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[1]")),"Add Project For Client not success");
+
     }
 
 }

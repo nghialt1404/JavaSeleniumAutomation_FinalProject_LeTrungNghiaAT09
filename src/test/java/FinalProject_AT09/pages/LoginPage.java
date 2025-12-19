@@ -1,6 +1,8 @@
 package FinalProject_AT09.pages;
 
+import constants.DataConfig;
 import helpers.PropertiesHelper;
+import helpers.SystemHelper;
 import keyword.WebUI;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -8,11 +10,6 @@ import org.testng.Assert;
 import java.util.Properties;
 
 public class LoginPage extends BasePage {
-
-    // Khai báo driver trong từng trang
-
-    private String urlCRM = "https://rise.anhtester.com/signin";
-
 
     // Element LoginPage
     private By headerLoginPage = By.xpath("//div[@class='card-header text-center']");
@@ -28,9 +25,8 @@ public class LoginPage extends BasePage {
 
     // Method
 
-
     public void navigateToLoginPage() {
-        WebUI.openURL("https://rise.anhtester.com/signin");
+        WebUI.openURL(PropertiesHelper.getValue("url"));
         WebUI.waitForPageLoaded();
     }
 
