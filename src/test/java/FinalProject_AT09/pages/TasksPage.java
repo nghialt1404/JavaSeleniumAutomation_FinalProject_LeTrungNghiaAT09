@@ -1,5 +1,6 @@
 package FinalProject_AT09.pages;
 
+import constants.DataConfig;
 import keyword.WebUI;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -86,7 +87,7 @@ public class TasksPage extends BasePage {
     public void addNewTask(String projectName) {
         clickMenuTasks();
         WebUI.clickElement(buttonAddTask);
-        WebUI.setText(inputTitle, "This is Task for Final Project");
+        WebUI.setText(inputTitle, DataConfig.TASK_NAME);
         WebUI.setText(inputDescription, "This is Task for Final Project");
         WebUI.clickElement(dropdowRelateTo);
         WebUI.clickElement(option_Project);
@@ -117,11 +118,11 @@ public class TasksPage extends BasePage {
         WebUI.clickElement(buttonSave_AddTask);
     }
 
-    public void verifyAddNewTaskForProjectSuccess(String projectName) {
+    public void verifyAddNewTaskForProjectSuccess(String projectName, String taskName) {
         WebUI.waitForElementVisible(alertAddTaskSuccess);
         Assert.assertTrue(WebUI.checkElementExist(alertAddTaskSuccess), "Add Task For Project not success ");
 
-        WebUI.setText(inputSearchTask, projectName);
+        WebUI.setText(inputSearchTask, taskName);
         WebUI.sleep(2);
         Assert.assertTrue(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[1]")),"Add Task For Project not success");
 

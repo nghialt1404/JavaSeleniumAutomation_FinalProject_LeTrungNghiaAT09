@@ -165,7 +165,7 @@ public class ClientsPage extends BasePage {
 
     public void verifyDeleteClientSuccess(String companyName) {
         WebUI.waitForElementVisible(alertDeleteClientSuccess);
-        Assert.assertEquals(WebUI.getElementText(alertDeleteClientSuccess), "The record has been deleted", "Message not match!");
+        Assert.assertEquals(WebUI.getElementText(alertDeleteClientSuccess), "The record has been deleted.", "Message not match!");
 
         // Check lại client vừa xoá còn tồn tại hay không
         Assert.assertFalse(WebUI.checkElementExist(By.xpath("//tbody/tr[1]/td[2]")), "The record has not been deleted");
@@ -175,7 +175,7 @@ public class ClientsPage extends BasePage {
         WebUI.waitForElementVisible(alertaddContactSuccess);
         Assert.assertTrue(WebUI.checkElementExist(alertaddContactSuccess, 5, 1000), "Add Contact For Client not success");
 
-        // Vào Tab Contact check xem có không
+        // Check lại contact vừa thêm đã hiển thị trong danh sách hay chưa
         clickMenuClients();
         clickTabContacts();
         WebUI.setText(inputSearchClient, companyName);

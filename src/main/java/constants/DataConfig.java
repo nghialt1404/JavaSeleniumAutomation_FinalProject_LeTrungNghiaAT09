@@ -19,6 +19,8 @@ public class DataConfig {
     public static final String TIMESTAMP = SystemHelper.getDateTimeFormatted();
     public static final String COMPANY_NAME = "Selenium Java Automation_" + TIMESTAMP;
     public static final String PROJECT_NAME ="FinalProject_AT09_" + TIMESTAMP ;
+    public static final String TASK_NAME ="TaskForFinalProject_AT09_" + TIMESTAMP ;
+
 
 
 
